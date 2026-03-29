@@ -1,5 +1,24 @@
 ---
-title: "Untitled"
-format: html
+title: "ETC5513_Assignment1"
+author: Chenghuiyu Fan
+format: 
+    html: 
+        toc: true
+    pdf:
+        toc: true
 ---
 
+```{r}
+#| echo: false
+#| message: false
+#| warnings: false
+library(tidyverse)
+library(here)
+library(knitr)
+```
+## Introduction section 
+As a Head of Marketing for an online retailer, understanding the relationship between marketing investment and return is critical for our company. Over the last quarter, a new personalised marketing campaign had been used to know how much marketing inventment contacting individual customers. The purpose of this report is to provide data support for the company's future decisions.
+
+## Research Question
+In this assignment, I will focus on the relationship between “marketing_spend" and "purchase_amount" which can help me to answer the question: did higher marketing spend per customer lead to higher purchase amounts?
+And then, I will focus on the differences between different kinds of customers, and get the conclusion of whether different types of customers have different prices?
