@@ -52,6 +52,10 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#introduction-section" id="toc-introduction-section" class="nav-link active" data-scroll-target="#introduction-section">Introduction section</a></li>
   <li><a href="#introduction-section-1" id="toc-introduction-section-1" class="nav-link" data-scroll-target="#introduction-section-1">Introduction section</a></li>
+  <li><a href="#research-question-section" id="toc-research-question-section" class="nav-link" data-scroll-target="#research-question-section">Research Question section</a></li>
+  <li><a href="#dataset-introduction-section" id="toc-dataset-introduction-section" class="nav-link" data-scroll-target="#dataset-introduction-section">Dataset Introduction section</a></li>
+  <li><a href="#dataset-description-subsection" id="toc-dataset-description-subsection" class="nav-link" data-scroll-target="#dataset-description-subsection">Dataset Description subsection</a></li>
+  <li><a href="#results-section" id="toc-results-section" class="nav-link" data-scroll-target="#results-section">Results section</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="ETC5513_assignment1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </div>
@@ -89,6 +93,77 @@ ul.task-list li input[type="checkbox"] {
 <section id="introduction-section-1" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-section-1">Introduction section</h2>
 <p>In this assignment, I will focus on the relationship between “marketing_spend” and “purchase_amount” which can help me to answer the question: did higher marketing spend per customer lead to higher purchase amounts? And then, I will focus on the differences between different kinds of customers, and get the conclusion of whether different types of customers have different prices?</p>
+</section>
+<section id="research-question-section" class="level2">
+<h2 class="anchored" data-anchor-id="research-question-section">Research Question section</h2>
+<p>The data set records the number of visits to the product and the amount of consumption by different kinds of customers under different marketing investments.In the data cleaning process, the null values in “purchase_amount” are filtered out first, because these NA values will affect the subsequent linear regression. And then purchase_amountAnd marketing_spend linear regression to draw conclusions after the summary.</p>
+</section>
+<section id="dataset-introduction-section" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-introduction-section">Dataset Introduction section</h2>
+</section>
+<section id="dataset-description-subsection" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-description-subsection">Dataset Description subsection</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = purchase_amount ~ marketing_spend, data = record_clean)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-101.504  -32.251   -3.844   29.725  118.799 
+
+Coefficients:
+                Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)      25.5996     7.8411   3.265   0.0014 ** 
+marketing_spend   1.0063     0.0443  22.718   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 46.38 on 130 degrees of freedom
+Multiple R-squared:  0.7988,    Adjusted R-squared:  0.7972 
+F-statistic: 516.1 on 1 and 130 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ETC5513_assignment1_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="results-section" class="level2">
+<h2 class="anchored" data-anchor-id="results-section">Results section</h2>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: `fortify(&lt;lm&gt;)` was deprecated in ggplot2 4.0.0.
+ℹ Please use `broom::augment(&lt;lm&gt;)` instead.
+ℹ The deprecated feature was likely used in the ggplot2 package.
+  Please report the issue at &lt;https://github.com/tidyverse/ggplot2/issues&gt;.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ETC5513_assignment1_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="ETC5513_assignment1_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 
 </main>

@@ -24,7 +24,9 @@ In this assignment, I will focus on the relationship between “marketing_spend"
 And then, I will focus on the differences between different kinds of customers, and get the conclusion of whether different types of customers have different prices?
 
 ## Research Question section
-The data set records the number of visits to the product and the amount of consumption by different kinds of customers under different marketing investments.
+The data set records the number of visits to the product and the amount of consumption by different kinds of customers under different marketing investments.In the data cleaning process, the null values in “purchase_amount” are filtered out first, because these NA values will affect the subsequent linear regression. And then purchase_amountAnd marketing_spend linear regression to draw conclusions after the summary.
+
+## Dataset Introduction section
 
 ```{r}
 #| echo: false
@@ -34,4 +36,42 @@ record_clean <- campaign_record |>
     filter(!is.na(purchase_amount))
     
 record_lm <- lm(purchase_amount ~ marketing_spend, data = record_clean)
+```
+## Dataset Description subsection
+
+
+```{r}
+#| echo: false
 summary(record_lm)
+```
+
+
+```{r}
+#| echo: false
+record_clean |>
+  ggplot(aes(x = marketing_spend)) +
+  geom_histogram(binwidth = 15, fill = "steelblue", colour = "white") +
+  labs(x = "Marketing Spend", y = "Count", 
+        title = "The Distribution of marketing expenses")
+
+```
+
+## Results section
+```{r}
+#| echo: false
+ggplot(record_lm, aes(x = marketing_spend, y = purchase_amount)) +
+    geom_point() +
+    geom_smooth(method = "lm", se = FALSE)+
+    labs(x = "Marketing Spend", y = "Purchase Amount",
+        title = "Marketing Spend vs Purchase Amount")
+```
+
+```{r}
+#| echo: false
+ggplot(record_clean, aes(
+        x = segment, y = purchase_amount, fill = segment)) +
+    geom_boxplot() +
+    labs(x = "Segment", y = "Purchase Amount", 
+        title = "The price range at which different customers buy")
+
+```
