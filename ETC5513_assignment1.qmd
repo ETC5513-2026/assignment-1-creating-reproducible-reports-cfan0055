@@ -22,3 +22,16 @@ As a Head of Marketing for an online retailer, understanding the relationship be
 ## Introduction section 
 In this assignment, I will focus on the relationship between “marketing_spend" and "purchase_amount" which can help me to answer the question: did higher marketing spend per customer lead to higher purchase amounts?
 And then, I will focus on the differences between different kinds of customers, and get the conclusion of whether different types of customers have different prices?
+
+## Research Question section
+The data set records the number of visits to the product and the amount of consumption by different kinds of customers under different marketing investments.
+
+```{r}
+#| echo: false
+campaign_record <- read.csv(here::here("data", "36427462_Chenghuiyu Fan.csv"))
+
+record_clean <- campaign_record |>
+    filter(!is.na(purchase_amount))
+    
+record_lm <- lm(purchase_amount ~ marketing_spend, data = record_clean)
+summary(record_lm)
