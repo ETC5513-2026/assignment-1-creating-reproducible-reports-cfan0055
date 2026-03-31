@@ -46,19 +46,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-  <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#introduction-section" id="toc-introduction-section" class="nav-link active" data-scroll-target="#introduction-section">Introduction section</a></li>
-  <li><a href="#introduction-section-1" id="toc-introduction-section-1" class="nav-link" data-scroll-target="#introduction-section-1">Introduction section</a></li>
-  <li><a href="#research-question-section" id="toc-research-question-section" class="nav-link" data-scroll-target="#research-question-section">Research Question section</a></li>
-  <li><a href="#dataset-introduction-section" id="toc-dataset-introduction-section" class="nav-link" data-scroll-target="#dataset-introduction-section">Dataset Introduction section</a></li>
-  <li><a href="#dataset-description-subsection" id="toc-dataset-description-subsection" class="nav-link" data-scroll-target="#dataset-description-subsection">Dataset Description subsection</a></li>
-  <li><a href="#results-section" id="toc-results-section" class="nav-link" data-scroll-target="#results-section">Results section</a></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="ETC5513_assignment1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
-</div>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="ETC5513_assignment1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -90,19 +78,18 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="introduction-section">Introduction section</h2>
 <p>As a Head of Marketing for an online retailer, understanding the relationship between marketing investment and return is critical for our company. Over the last quarter, a new personalised marketing campaign had been used to know how much marketing inventment contacting individual customers. The purpose of this report is to provide data support for the company’s future decisions.</p>
 </section>
-<section id="introduction-section-1" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-section-1">Introduction section</h2>
-<p>In this assignment, I will focus on the relationship between “marketing_spend” and “purchase_amount” which can help me to answer the question: did higher marketing spend per customer lead to higher purchase amounts? And then, I will focus on the differences between different kinds of customers, and get the conclusion of whether different types of customers have different prices?</p>
-</section>
 <section id="research-question-section" class="level2">
 <h2 class="anchored" data-anchor-id="research-question-section">Research Question section</h2>
-<p>The data set records the number of visits to the product and the amount of consumption by different kinds of customers under different marketing investments.In the data cleaning process, the null values in “purchase_amount” are filtered out first, because these NA values will affect the subsequent linear regression. And then purchase_amountAnd marketing_spend linear regression to draw conclusions after the summary.</p>
+<p>In this assignment, I will focus on the relationship between “marketing_spend” and “purchase_amount” which can help me to answer the question: did higher marketing spend per customer lead to higher purchase amounts? And then, I will focus on the differences between different kinds of customers, and get the conclusion of whether different types of customers have different prices?</p>
 </section>
 <section id="dataset-introduction-section" class="level2">
 <h2 class="anchored" data-anchor-id="dataset-introduction-section">Dataset Introduction section</h2>
+<p>The data set records the number of visits to the product and the amount of consumption by different kinds of customers under different marketing investments.In the data cleaning process, the null values in “purchase_amount” are filtered out first, because these NA values will affect the subsequent linear regression. And then purchase_amountAnd marketing_spend linear regression to draw conclusions after the summary.</p>
 </section>
 <section id="dataset-description-subsection" class="level2">
 <h2 class="anchored" data-anchor-id="dataset-description-subsection">Dataset Description subsection</h2>
+<p>The cleaned dataset include 132 observations and 7 variables. The variables include the <code>customer_id</code>(character), <code>signup_date</code>(character), <code>marketing_spend</code>(double), <code>visits</code>(integer), <code>purchase_amount</code>(double), <code>segment</code>(character), <code>notes</code>(character)</p>
+<p>By using the summary function, a conclusion can be drawn.Firstly, there is a significant positive relationship between marketing spend and purchase amount. Secondly, every 1 unit increase in marketing spend leads to a 1.006 unit increase in purchase amount — almost a 1-to-1 return on investment. And then the R squar = 0.80 means marketing spend explains 80% of the variation in purchase amount which can be seen a very strong explanation for this dataset.In the end, the p-value far below 0.001 which means this result is not due to chance.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -129,7 +116,7 @@ F-statistic: 516.1 on 1 and 130 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ETC5513_assignment1_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ETC5513_assignment1_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -138,19 +125,10 @@ F-statistic: 516.1 on 1 and 130 DF,  p-value: &lt; 2.2e-16</code></pre>
 <section id="results-section" class="level2">
 <h2 class="anchored" data-anchor-id="results-section">Results section</h2>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: `fortify(&lt;lm&gt;)` was deprecated in ggplot2 4.0.0.
-ℹ Please use `broom::augment(&lt;lm&gt;)` instead.
-ℹ The deprecated feature was likely used in the ggplot2 package.
-  Please report the issue at &lt;https://github.com/tidyverse/ggplot2/issues&gt;.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ETC5513_assignment1_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ETC5513_assignment1_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -159,7 +137,7 @@ F-statistic: 516.1 on 1 and 130 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="ETC5513_assignment1_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="ETC5513_assignment1_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>

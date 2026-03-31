@@ -2,12 +2,9 @@
 title: "ETC5513_Assignment1"
 author: Chenghuiyu Fan
 format: 
-    html: 
-        toc: true
-    pdf:
-        toc: true
+    html: default
+    pdf: default
 ---
-
 ```{r}
 #| echo: false
 #| message: false
@@ -19,15 +16,12 @@ library(knitr)
 ## Introduction section 
 As a Head of Marketing for an online retailer, understanding the relationship between marketing investment and return is critical for our company. Over the last quarter, a new personalised marketing campaign had been used to know how much marketing inventment contacting individual customers. The purpose of this report is to provide data support for the company's future decisions.
 
-## Introduction section 
+## Research Question section
 In this assignment, I will focus on the relationship between “marketing_spend" and "purchase_amount" which can help me to answer the question: did higher marketing spend per customer lead to higher purchase amounts?
 And then, I will focus on the differences between different kinds of customers, and get the conclusion of whether different types of customers have different prices?
 
-## Research Question section
-The data set records the number of visits to the product and the amount of consumption by different kinds of customers under different marketing investments.In the data cleaning process, the null values in “purchase_amount” are filtered out first, because these NA values will affect the subsequent linear regression. And then purchase_amountAnd marketing_spend linear regression to draw conclusions after the summary.
-
 ## Dataset Introduction section
-
+The data set records the number of visits to the product and the amount of consumption by different kinds of customers under different marketing investments.In the data cleaning process, the null values in “purchase_amount” are filtered out first, because these NA values will affect the subsequent linear regression. And then purchase_amountAnd marketing_spend linear regression to draw conclusions after the summary.
 ```{r}
 #| echo: false
 campaign_record <- read.csv(here::here("data", "36427462_Chenghuiyu Fan.csv"))
@@ -38,13 +32,18 @@ record_clean <- campaign_record |>
 record_lm <- lm(purchase_amount ~ marketing_spend, data = record_clean)
 ```
 ## Dataset Description subsection
+```{r}
+#| echo: false
+n_rows <- nrow(record_clean)
+n_cols <- ncol(record_clean)
+```
+The cleaned dataset include `r n_rows` observations and `r n_cols` variables. The variables include the `customer_id`(character), `signup_date`(character),  `marketing_spend`(double), `visits`(integer), `purchase_amount`(double), `segment`(character), `notes`(character)
 
-
+By using the summary function, a conclusion can be drawn.Firstly, there is a significant positive relationship between marketing spend and purchase amount. Secondly, every 1 unit increase in marketing spend leads to a 1.006 unit increase in purchase amount — almost a 1-to-1 return on investment. And then the R squar = 0.80 means marketing spend explains 80% of the variation in purchase amount which can be seen a very strong explanation for this dataset.In the end, the p-value far below 0.001 which means this result is not due to chance.
 ```{r}
 #| echo: false
 summary(record_lm)
 ```
-
 
 ```{r}
 #| echo: false
@@ -59,6 +58,7 @@ record_clean |>
 ## Results section
 ```{r}
 #| echo: false
+#| warning: false
 ggplot(record_lm, aes(x = marketing_spend, y = purchase_amount)) +
     geom_point() +
     geom_smooth(method = "lm", se = FALSE)+
